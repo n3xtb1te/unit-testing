@@ -1,26 +1,46 @@
-import { it, expect } from 'vitest';
-import { transformToNumber } from './numbers';
+import { describe, it, expect } from 'vitest';
+import { transformToNumber, cleanNumbers } from './numbers';
 
-it('should transform a numeric string to a number', () => {
-    const string = '22';
-
-    const result = transformToNumber(string);
-
-    expect(result).toBeTypeOf('number');
+describe('transformToNumber', () => {
+    it('should transform a numeric string to a number', () => {
+        const string = '22';
+    
+        const result = transformToNumber(string);
+    
+        expect(result).toBeTypeOf('number');
+    });
+    
+    it('should transform a negative numeric string to a number', () => {
+        const string = '-22';
+    
+        const result = transformToNumber(string);
+    
+        expect(result).toBeTypeOf('number');
+    });
+    
+    it('should yield NaN for a non-numeric string to a number', () => {
+        const string = 'invalid';
+    
+        const result = transformToNumber(string);
+    
+        expect(result).toBeNaN();
+    });
 });
 
-it('should transform a negative numeric string to a number', () => {
-    const string = '-22';
+describe('cleanNumbers', () => {
+    it('should return an array of number values if an array of string number values is provided', () => {
+        const numberValues = ['22', '33', '44'];
+    
+        const cleanedNumbers = cleanNumbers(numberValues);
 
-    const result = transformToNumber(string);
+        expect(cleanedNumbers[0]).toBeTypeOf('number');
+    });
 
-    expect(result).toBeTypeOf('number');
-});
+    it('should throw an error if an array with at least one empty string is provided', () => {
+        const numberValues = ['22', '33', ''];
 
-it('should yield NaN for a non-numeric string to a number', () => {
-    const string = 'invalid';
+        const resultFn = () => cleanNumbers(numberValues);
 
-    const result = transformToNumber(string);
-
-    expect(result).toBeNaN();
+        expect(resultFn).toThrow('Invalid input - must not be empty.');
+    });
 });
