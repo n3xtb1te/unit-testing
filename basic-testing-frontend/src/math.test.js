@@ -1,5 +1,5 @@
-import { test, it, expect } from "vitest";
-import { add } from "./math";
+import { test, it, expect } from 'vitest';
+import { add } from './math';
 
 it('should summarize all number values in an array', () => {
     // Arrange Phase (set up the test)

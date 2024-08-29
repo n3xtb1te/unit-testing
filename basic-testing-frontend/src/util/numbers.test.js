@@ -1,5 +1,5 @@
-import { it, expect } from "vitest";
-import { transformToNumber } from "./numbers";
+import { it, expect } from 'vitest';
+import { transformToNumber } from './numbers';
 
 it('should transform a numeric string to a number', () => {
     const string = '22';

@@ -1,6 +1,7 @@
 import { validateStringNotEmpty, validateNumber } from './validation.js';
 
 export function transformToNumber(value) {
+  // return NaN;
   return +value;
 }
 
@@ -13,4 +14,4 @@ export function cleanNumbers(numberValues) {
     numbers.push(number);
   }
   return numbers;
-};
+}

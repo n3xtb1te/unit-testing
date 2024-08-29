@@ -1,5 +1,5 @@
-import { it, expect, describe } from "vitest";
-import { validateStringNotEmpty, validateNumber } from "./validation";
+import { it, expect, describe } from 'vitest';
+import { validateStringNotEmpty, validateNumber } from './validation';
 
 describe('validateStringNotEmpty', () => {
     it('should throw an error if an empty string is provided', () => {
