@@ -34,10 +34,19 @@ describe('cleanNumbers', () => {
         const cleanedNumbers = cleanNumbers(numberValues);
 
         expect(cleanedNumbers[0]).toBeTypeOf('number');
+        expect(cleanedNumbers).toEqual([22, 33, 44]);
     });
 
     it('should throw an error if an array with at least one empty string is provided', () => {
         const numberValues = ['22', '33', ''];
+
+        const resultFn = () => cleanNumbers(numberValues);
+
+        expect(resultFn).toThrow('Invalid input - must not be empty.');
+    });
+
+    it('should throw an error if an array with at least one non-numeric string is provided', () => {
+        const numberValues = ['', 22];
 
         const resultFn = () => cleanNumbers(numberValues);
 

@@ -5,7 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+<<<<<<< HEAD
     "test": "vitest"
+=======
+    "test": "vitest --run"
+>>>>>>> 07-mocking-spies
   },
   "keywords": [],
   "author": "",
